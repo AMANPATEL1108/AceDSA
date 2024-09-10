@@ -1,0 +1,924 @@
+{
+  "dsa_problems": [
+    {
+      "topic": "Arrays",
+      "problems": [
+        {
+          "id": 1,
+          "title": "Two Sum",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/two-sum/",
+          "description": "Find two numbers such that they add up to a specific target.",
+          "example": {
+            "input": "nums = [2, 7, 11, 15], target = 9",
+            "output": "[0, 1]"
+          }
+        },
+        {
+          "id": 2,
+          "title": "Best Time to Buy and Sell Stock",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+          "description": "Find the maximum profit from a list of stock prices.",
+          "example": {
+            "input": "prices = [7, 1, 5, 3, 6, 4]",
+            "output": "5"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Product of Array Except Self",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/product-of-array-except-self/",
+          "description": "Return an array where each element is the product of all the elements except itself.",
+          "example": {
+            "input": "nums = [1, 2, 3, 4]",
+            "output": "[24, 12, 8, 6]"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Maximum Subarray",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/maximum-subarray/",
+          "description": "Find the contiguous subarray with the largest sum.",
+          "example": {
+            "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+            "output": "6"
+          }
+        },
+        {
+          "id": 5,
+          "title": "Find Minimum in Rotated Sorted Array",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+          "description": "Find the minimum element in a rotated sorted array.",
+          "example": {
+            "input": "nums = [3,4,5,1,2]",
+            "output": "1"
+          }
+        },
+        {
+          "id": 6,
+          "title": "Search in Rotated Sorted Array",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+          "description": "Search a given target in a rotated sorted array.",
+          "example": {
+            "input": "nums = [4,5,6,7,0,1,2], target = 0",
+            "output": "4"
+          }
+        },
+        {
+          "id": 7,
+          "title": "Merge Intervals",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/merge-intervals/",
+          "description": "Merge all overlapping intervals.",
+          "example": {
+            "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+            "output": "[[1,6],[8,10],[15,18]]"
+          }
+        },
+        {
+          "id": 8,
+          "title": "3Sum",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/3sum/",
+          "description": "Find all unique triplets in the array that give the sum of zero.",
+          "example": {
+            "input": "nums = [-1,0,1,2,-1,-4]",
+            "output": "[[-1,-1,2],[-1,0,1]]"
+          }
+        },
+        {
+          "id": 9,
+          "title": "Container With Most Water",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/container-with-most-water/",
+          "description": "Find two lines that together with the x-axis form a container, such that the container contains the most water.",
+          "example": {
+            "input": "height = [1,8,6,2,5,4,8,3,7]",
+            "output": "49"
+          }
+        },
+        {
+          "id": 10,
+          "title": "Sliding Window Maximum",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/sliding-window-maximum/",
+          "description": "Find the maximum value in each sliding window of size k.",
+          "example": {
+            "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+            "output": "[3,3,5,5,6,7]"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Strings",
+      "problems": [
+        {
+          "id": 1,
+          "title": "Longest Substring Without Repeating Characters",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+          "description": "Find the length of the longest substring without repeating characters.",
+          "example": {
+            "input": "s = 'abcabcbb'",
+            "output": "3"
+          }
+        },
+        {
+          "id": 2,
+          "title": "Valid Anagram",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/valid-anagram/",
+          "description": "Check if two strings are anagrams of each other.",
+          "example": {
+            "input": "s = 'anagram', t = 'nagaram'",
+            "output": "true"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Longest Palindromic Substring",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/longest-palindromic-substring/",
+          "description": "Find the longest palindromic substring in a given string.",
+          "example": {
+            "input": "s = 'babad'",
+            "output": "'bab'"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Group Anagrams",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/group-anagrams/",
+          "description": "Group anagrams together from a list of strings.",
+          "example": {
+            "input": "strs = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']",
+            "output": "[['bat'], ['nat', 'tan'], ['ate', 'eat', 'tea']]"
+          }
+        },
+        {
+          "id": 5,
+          "title": "Count and Say",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/count-and-say/",
+          "description": "Generate the nth term in the count-and-say sequence.",
+          "example": {
+            "input": "n = 4",
+            "output": "'1211'"
+          }
+        },
+        {
+          "id": 6,
+          "title": "Longest Common Prefix",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/longest-common-prefix/",
+          "description": "Find the longest common prefix string amongst an array of strings.",
+          "example": {
+            "input": "strs = ['flower', 'flow', 'flight']",
+            "output": "'fl'"
+          }
+        },
+        {
+          "id": 7,
+          "title": "Multiply Strings",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/multiply-strings/",
+          "description": "Multiply two non-negative integers represented as strings.",
+          "example": {
+            "input": "num1 = '2', num2 = '3'",
+            "output": "'6'"
+          }
+        },
+        {
+          "id": 8,
+          "title": "Is Subsequence",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/is-subsequence/",
+          "description": "Check if a string is a subsequence of another string.",
+          "example": {
+            "input": "s = 'abc', t = 'ahbgdc'",
+            "output": "true"
+          }
+        },
+        {
+          "id": 9,
+          "title": "Minimum Window Substring",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/minimum-window-substring/",
+          "description": "Find the minimum window substring in a given string that contains all characters of another string.",
+          "example": {
+            "input": "s = 'ADOBECODEBANC', t = 'ABC'",
+            "output": "'BANC'"
+          }
+        },
+        {
+          "id": 10,
+          "title": "Edit Distance",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/edit-distance/",
+          "description": "Find the minimum number of operations required to convert one string to another.",
+          "example": {
+            "input": "word1 = 'horse', word2 = 'ros'",
+            "output": "3"
+          }
+        }
+      ]
+    },
+{
+      "topic": "Linked Lists",
+      "problems": [
+        {
+          "id": 1,
+          "title": "Reverse Linked List",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/reverse-linked-list/",
+          "description": "Reverse a singly linked list.",
+          "example": {
+            "input": "head = [1,2,3,4,5]",
+            "output": "[5,4,3,2,1]"
+          }
+        },
+        {
+          "id": 2,
+          "title": "Merge Two Sorted Lists",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/merge-two-sorted-lists/",
+          "description": "Merge two sorted linked lists into one sorted list.",
+          "example": {
+            "input": "list1 = [1,2,4], list2 = [1,3,4]",
+            "output": "[1,1,2,3,4,4]"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Linked List Cycle",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/linked-list-cycle/",
+          "description": "Determine if a linked list has a cycle.",
+          "example": {
+            "input": "head = [3,2,0,-4], pos = 1",
+            "output": "true"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Add Two Numbers",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/add-two-numbers/",
+          "description": "Add two numbers represented by linked lists.",
+          "example": {
+            "input": "l1 = [2,4,3], l2 = [5,6,4]",
+            "output": "[7,0,8]"
+          }
+        },
+        {
+          "id": 5,
+          "title": "Remove Nth Node From End of List",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+          "description": "Remove the nth node from the end of a linked list.",
+          "example": {
+            "input": "head = [1,2,3,4,5], n = 2",
+            "output": "[1,2,3,5]"
+          }
+        },
+        {
+          "id": 6,
+          "title": "Reorder List",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/reorder-list/",
+          "description": "Reorder a linked list in a specific order.",
+          "example": {
+            "input": "head = [1,2,3,4]",
+            "output": "[1,4,2,3]"
+          }
+        },
+        {
+          "id": 7,
+          "title": "Copy List with Random Pointer",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+          "description": "Deep copy a linked list with random pointers.",
+          "example": {
+            "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]",
+            "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]"
+          }
+        },
+        {
+          "id": 8,
+          "title": "Flatten a Multilevel Doubly Linked List",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/",
+          "description": "Flatten a multilevel doubly linked list.",
+          "example": {
+            "input": "head = [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]",
+            "output": "[1,2,3,7,8,11,12,9,10,4,5,6]"
+          }
+        },
+        {
+          "id": 9,
+          "title": "Sort List",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/sort-list/",
+          "description": "Sort a linked list in O(n log n) time complexity and O(1) space complexity.",
+          "example": {
+            "input": "head = [4,2,1,3]",
+            "output": "[1,2,3,4]"
+          }
+        },
+        {
+          "id": 10,
+          "title": "Intersection of Two Linked Lists",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+          "description": "Find the node where two linked lists intersect.",
+          "example": {
+            "input": "headA = [4,1,8,4,5], headB = [5,6,1,8,4,5]",
+            "output": "8"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Trees",
+      "problems": [
+        {
+          "id": 1,
+          "title": "Maximum Depth of Binary Tree",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+          "description": "Find the maximum depth of a binary tree.",
+          "example": {
+            "input": "root = [3,9,20,null,null,15,7]",
+            "output": "3"
+          }
+        },
+        {
+          "id": 2,
+          "title": "Validate Binary Search Tree",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/validate-binary-search-tree/",
+          "description": "Determine if a binary tree is a valid binary search tree.",
+          "example": {
+            "input": "root = [2,1,3]",
+            "output": "true"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Symmetric Tree",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/symmetric-tree/",
+          "description": "Check if a binary tree is symmetric.",
+          "example": {
+            "input": "root = [1,2,2,3,4,4,3]",
+            "output": "true"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Binary Tree Level Order Traversal",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+          "description": "Return the level order traversal of a binary tree.",
+          "example": {
+            "input": "root = [3,9,20,null,null,15,7]",
+            "output": "[[3],[9,20],[15,7]]"
+          }
+        },
+        {
+          "id": 5,
+          "title": "Convert Sorted Array to Binary Search Tree",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/",
+          "description": "Convert a sorted array into a height-balanced binary search tree.",
+          "example": {
+            "input": "nums = [-10,-3,0,5,9]",
+            "output": "[0,-3,9,-10,null,5]"
+          }
+        },
+        {
+          "id": 6,
+          "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+          "description": "Construct a binary tree from preorder and inorder traversal.",
+          "example": {
+            "input": "preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]",
+            "output": "[3,9,20,null,null,15,7]"
+          }
+        },
+        {
+          "id": 7,
+          "title": "Binary Tree Maximum Path Sum",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+          "description": "Find the maximum path sum in a binary tree.",
+          "example": {
+            "input": "root = [-10,9,20,null,null,15,7]",
+            "output": "42"
+          }
+        },
+        {
+          "id": 8,
+          "title": "Lowest Common Ancestor of a Binary Tree",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+          "description": "Find the lowest common ancestor of two nodes in a binary tree.",
+          "example": {
+            "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1",
+            "output": "3"
+          }
+        },
+        {
+          "id": 9,
+          "title": "Serialize and Deserialize Binary Tree",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+          "description": "Design an algorithm to serialize and deserialize a binary tree.",
+          "example": {
+            "input": "root = [1,2,3,null,null,4,5]",
+            "output": "[1,2,3,null,null,4,5]"
+          }
+        },
+        {
+          "id": 10,
+          "title": "Kth Smallest Element in a BST",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+          "description": "Find the kth smallest element in a Binary Search Tree (BST).",
+          "example": {
+            "input": "root = [3,1,4,null,2], k = 1",
+            "output": "1"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Graphs",
+      "problems": [
+        {
+          "id": 1,
+          "title": "Number of Islands",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/number-of-islands/",
+          "description": "Find the number of islands in a 2D grid map.",
+          "example": {
+            "input": "grid = [[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"1\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"1\",\"1\"]]",
+            "output": "3"
+          }
+        },
+        {
+          "id": 2,
+          "title": "Clone Graph",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/clone-graph/",
+          "description": "Clone an undirected graph.",
+          "example": {
+            "input": "adjList = [[2,4],[1,3],[2,4],[1,3]]",
+            "output": "[[2,4],[1,3],[2,4],[1,3]]"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Course Schedule",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/course-schedule/",
+          "description": "Determine if you can finish all courses given the prerequisites.",
+          "example": {
+            "input": "numCourses = 2, prerequisites = [[1,0]]",
+            "output": "true"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Graph Valid Tree",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/graph-valid-tree/",
+          "description": "Determine if the given graph is a valid tree.",
+          "example": {
+            "input": "n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]",
+            "output": "true"
+          }
+        },
+        {
+          "id": 5,
+          "title": "Network Delay Time",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/network-delay-time/",
+          "description": "Find the time it takes for all nodes to receive a signal from a given node.",
+          "example": {
+            "input": "times = [[2,1,1],[2,3,1],[3,4,1]], N = 4, K = 2",
+            "output": "2"
+          }
+        },
+        {
+          "id": 6,
+          "title": "Minimum Height Trees",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/minimum-height-trees/",
+          "description": "Find all minimum height trees and return their root labels.",
+          "example": {
+            "input": "n = 4, edges = [[1,0],[1,2],[1,3]]",
+            "output": "[1]"
+          }
+        },
+        {
+          "id": 7,
+          "title": "Find the Town Judge",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/find-the-town-judge/",
+          "description": "Find the town judge given trust relationships.",
+          "example": {
+            "input": "n = 2, trust = [[1,2]]",
+            "output": "2"
+          }
+        },
+        {
+          "id": 8,
+          "title": "Word Ladder",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/word-ladder/",
+          "description": "Transform one word into another using the minimum number of transformations.",
+          "example": {
+            "input": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]",
+            "output": "5"
+          }
+        },
+        {
+          "id": 9,
+          "title": "Critical Connections in a Network",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/critical-connections-in-a-network/",
+          "description": "Find all critical connections in a network.",
+          "example": {
+            "input": "n = 4, connections = [[0,1],[1,2],[2,0],[1,3]]",
+            "output": "[[1,3]]"
+          }
+        },
+        {
+          "id": 10,
+          "title": "Cheapest Flights Within K Stops",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+          "description": "Find the cheapest price to travel from source to destination with at most K stops.",
+          "example": {
+            "input": "n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, K = 1",
+            "output": "200"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Dynamic Programming",
+      "problems": [
+        {
+          "id": 1,
+          "title": "Climbing Stairs",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/climbing-stairs/",
+          "description": "Find the number of ways to reach the top of the stairs.",
+          "example": {
+            "input": "n = 2",
+            "output": "2"
+          }
+        },
+        {
+          "id": 2,
+          "title": "House Robber",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/house-robber/",
+          "description": "Find the maximum amount of money you can rob without robbing adjacent houses.",
+          "example": {
+            "input": "nums = [1,2,3,1]",
+            "output": "4"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Longest Increasing Subsequence",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/longest-increasing-subsequence/",
+          "description": "Find the length of the longest increasing subsequence.",
+          "example": {
+            "input": "nums = [10,9,2,5,3,7,101,18]",
+            "output": "4"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Coin Change",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/coin-change/",
+          "description": "Find the minimum number of coins needed to make a certain amount.",
+          "example": {
+            "input": "coins = [1, 2, 5], amount = 11",
+            "output": "3"
+          }
+        },
+        {
+          "id": 5,
+          "title": "Word Break",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/word-break/",
+          "description": "Determine if a word can be segmented into space-separated sequence of dictionary words.",
+          "example": {
+            "input": "s = \"leetcode\", wordDict = [\"leet\", \"code\"]",
+            "output": "true"
+          }
+        },
+        {
+          "id": 6,
+          "title": "Unique Paths",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/unique-paths/",
+          "description": "Find the number of unique paths in a grid from top-left to bottom-right corner.",
+          "example": {
+            "input": "m = 3, n = 7",
+            "output": "28"
+          }
+        },
+        {
+          "id": 7,
+          "title": "Longest Common Subsequence",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/longest-common-subsequence/",
+          "description": "Find the length of the longest common subsequence between two strings.",
+          "example": {
+            "input": "text1 = \"abcde\", text2 = \"ace\"",
+            "output": "3"
+          }
+        },
+        {
+          "id": 8,
+          "title": "Target Sum",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/target-sum/",
+          "description": "Find the number of ways to assign symbols to make the sum of integers equal to the target.",
+          "example": {
+            "input": "nums = [1, 1, 1, 1, 1], target = 3",
+            "output": "5"
+          }
+        },
+        {
+          "id": 9,
+          "title": "Regular Expression Matching",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/regular-expression-matching/",
+          "description": "Implement regular expression matching with support for '.' and '*'.",
+          "example": {
+            "input": "s = \"aa\", p = \"a*\"",
+            "output": "true"
+          }
+        },
+        {
+          "id": 10,
+          "title": "Burst Balloons",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/burst-balloons/",
+          "description": "Find the maximum coins you can collect by bursting the balloons.",
+          "example": {
+            "input": "nums = [3,1,5,8]",
+            "output": "167"
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Stacks",
+      "problems": [
+        {
+          "id": 1,
+          "title": "Valid Parentheses",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/valid-parentheses/",
+          "description": "Determine if the input string is valid.",
+          "example": {
+            "input": "s = \"()[]{}\"",
+            "output": "true"
+          }
+        },
+        {
+          "id": 2,
+          "title": "Min Stack",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/min-stack/",
+          "description": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.",
+          "example": {
+            "input": "commands = [\"MinStack\",\"push\",\"push\",\"push\",\"getMin\",\"pop\",\"top\",\"getMin\"], values = [[],[0],[1],[0],[],[],[],[]]",
+            "output": "[null,null,null,null,0,null,1,0]"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Evaluate Reverse Polish Notation",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/evaluate-reverse-polish-notation/",
+          "description": "Evaluate the value of an arithmetic expression in Reverse Polish Notation.",
+          "example": {
+            "input": "tokens = [\"2\",\"1\",\"+\",\"3\",\"*\"]",
+            "output": "9"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Next Greater Element I",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/next-greater-element-i/",
+          "description": "Find the next greater element for every element in the first array.",
+          "example": {
+            "input": "nums1 = [4,1,2], nums2 = [1,3,4,2]",
+            "output": "[-1,3,-1]"
+          }
+        },
+        {
+          "id": 5,
+          "title": "Decode String",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/decode-string/",
+          "description": "Decode a string that is encoded in a specific format.",
+          "example": {
+            "input": "s = \"3[a]2[bc]\"",
+            "output": "\"aaabcbc\""
+          }
+        },
+        {
+          "id": 6,
+          "title": "Remove All Adjacent Duplicates In String",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/",
+          "description": "Remove all adjacent duplicates in the string.",
+          "example": {
+            "input": "s = \"abbaca\"",
+            "output": "\"ca\""
+          }
+        },
+        {
+          "id": 7,
+          "title": "Baseball Game",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/baseball-game/",
+          "description": "You're now a baseball game point recorder.",
+          "example": {
+            "input": "ops = [\"5\",\"2\",\"C\",\"D\",\"+\"]",
+            "output": "30"
+          }
+        },
+        {
+          "id": 8,
+          "title": "Remove K Digits",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/remove-k-digits/",
+          "description": "Remove k digits from the number so that the new number is the smallest possible.",
+          "example": {
+            "input": "num = \"1432219\", k = 3",
+            "output": "\"1219\""
+          }
+        },
+        {
+          "id": 9,
+          "title": "Binary Tree Inorder Traversal",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+          "description": "Return the inorder traversal of a binary tree.",
+          "example": {
+            "input": "root = [1,null,2,3]",
+            "output": "[1,3,2]"
+          }
+        },
+        {
+          "id": 10,
+          "title": "Remove Duplicate Letters",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/remove-duplicate-letters/",
+          "description": "Remove the smallest in lexicographical order and return it.",
+          "example": {
+            "input": "s = \"bcabc\"",
+            "output": "\"abc\""
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Queues",
+      "problems": [
+        {
+          "id": 1,
+          "title": "Design Circular Deque",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/design-circular-deque/",
+          "description": "Design your implementation of the circular double-ended queue.",
+          "example": {
+            "input": "commands = [\"MyCircularDeque\",\"insertLast\",\"insertLast\",\"insertFront\",\"insertFront\",\"getRear\",\"isFull\",\"deleteLast\",\"insertFront\",\"getFront\"]",
+            "output": "[null,true,true,true,true,2,true,true,true,2]"
+          }
+        },
+        {
+          "id": 2,
+          "title": "Design Circular Queue",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/design-circular-queue/",
+          "description": "Design your implementation of the circular queue.",
+          "example": {
+            "input": "commands = [\"MyCircularQueue\",\"enQueue\",\"enQueue\",\"enQueue\",\"enQueue\",\"Rear\",\"isFull\",\"deQueue\",\"enQueue\",\"Rear\"]",
+            "output": "[null,true,true,true,false,3,true,true,true,4]"
+          }
+        },
+        {
+          "id": 3,
+          "title": "Design Hit Counter",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/design-hit-counter/",
+          "description": "Design a hit counter which counts the number of hits received in the past 5 minutes.",
+          "example": {
+            "input": "commands = [\"HitCounter\",\"hit\",\"hit\",\"hit\",\"getHits\",\"hit\",\"getHits\",\"hit\",\"getHits\"]",
+            "output": "[null,null,null,null,3,null,3,null,4]"
+          }
+        },
+        {
+          "id": 4,
+          "title": "Design Snake Game",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/design-snake-game/",
+          "description": "Design a Snake game that is played on a device with screen size = width x height.",
+          "example": {
+            "input": "commands = [\"SnakeGame\",\"move\",\"move\",\"move\",\"move\",\"move\",\"move\",\"move\"]",
+            "output": "[null,0,0,0,0,0 ,-1,-1]"
+          }
+        },
+        {
+          "id": 5,
+          "title": "Design Twitter",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/design-twitter/",
+          "description": "Design a simplified version of Twitter where users can post tweets, follow/unfollow other users.",
+          "example": {
+            "input": "commands = [\"Twitter\",\"postTweet\",\"getNewsFeed\",\"follow\",\"postTweet\",\"getNewsFeed\"]",
+            "output": "[null,null,[],null,null,[]]"
+          }
+        },
+        {
+          "id": 6,
+          "title": "Design Circular Queue",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/design-circular-queue/",
+          "description": "Design your implementation of the circular queue.",
+          "example": {
+            "input": "commands = [\"MyCircularQueue\",\"enQueue\",\"enQueue\",\"enQueue\",\"enQueue\",\"Rear\",\"isFull\",\"deQueue\",\"enQueue\",\"Rear\"]",
+            "output": "[null,true,true,true,false,3,true,true,true,4]"
+          }
+        },
+        {
+          "id": 7,
+          "title": "Design Circular Deque",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/design-circular-deque/",
+          "description": "Design your implementation of the circular double-ended queue.",
+          "example": {
+            "input": "commands = [\"MyCircularDeque\",\"insertLast\",\"insertLast\",\"insertFront\",\"insertFront\",\"getRear\",\"isFull\",\"deleteLast\",\"insertFront\",\"getFront\"]",
+            "output": "[null,true,true,true,true,2,true,true,true,2]"
+          }
+        },
+        {
+          "id": 8,
+          "title": "Design Hit Counter",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/design-hit-counter/",
+          "description": "Design a hit counter which counts the number of hits received in the past 5 minutes.",
+          "example": {
+            "input": "commands = [\"HitCounter\",\"hit\",\"hit\",\"hit\",\"getHits\",\"hit\",\"getHits\",\"hit\",\"getHits\"]",
+            "output": "[null,null,null,null,3,null,3,null,4]"
+          }
+        },
+        {
+          "id": 9,
+          "title": "Design Snake Game",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/design-snake-game/",
+          "description": "Design a Snake game that is played on a device with screen size = width x height.",
+          "example": {
+            "input": "commands = [\"SnakeGame\",\"move\",\"move\",\"move\",\"move\",\"move\",\"move\",\"move\"]",
+            "output": "[null,0,0,0,0,0 ,-1,-1]"
+          }
+        },
+        {
+          "id": 10,
+          "title": "Design Twitter",
+          "difficulty": "Medium",
+          "leetcode_link": "https://leetcode.com/problems/design-twitter/",
+          "description": "Design a simplified version of Twitter where users can post tweets, follow/unfollow other users.",
+          "example": {
+            "input": "commands = [\"Twitter\",\"postTweet\",\"getNewsFeed\",\"follow\",\"postTweet\",\"getNewsFeed\"]",
+            "output": "[null,null,[],null,null,[]]"
+          }
+        }
+      ]
+    }
+  ]
+}
