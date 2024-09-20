@@ -55,7 +55,7 @@ const UserDashboard = () => {
                 <span>Leaderboard</span>
               </a>
             </li>
-            <li onClick={logout} className="cursor-pointer px-6 py-2 hover:bg-gray-700">
+            <li onClick={handleLogout} className="cursor-pointer px-6 py-2 hover:bg-gray-700">
               <a className="flex items-center space-x-2">
                 <FaSignOutAlt className="text-green-400" />
                 <span>Logout</span>

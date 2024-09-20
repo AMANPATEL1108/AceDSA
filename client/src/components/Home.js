@@ -5,10 +5,7 @@ import {
   FaCode,
   FaUserPlus,
   FaChartLine,
-  FaUsers,
-  FaLightbulb,
   FaPuzzlePiece,
-  FaRocket,
 } from "react-icons/fa";
 
 
