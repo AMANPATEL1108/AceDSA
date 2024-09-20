@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: 'https://acedsa.up.railway.app/:3000',
+  origin: 'http://localhost:3000',
   credentials: true,
   optionsSuccessStatus: 200,
 }));
