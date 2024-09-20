@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Admin = require('../models/Admin');
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost:27017/cp3DB', {
+mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
