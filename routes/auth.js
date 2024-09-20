@@ -77,8 +77,6 @@ router.get('/github', passport.authenticate('github'));
 router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/login' }),
   (req, res) => {
     const token = jwt.sign({ user: { id: req.user.id } }, process.env.JWT_SECRET, { expiresIn: '24h' });
-    console.log("Token: ",token);
-    console.log(("Userid: ",req.user.id));
     res.redirect(`http://localhost:3000/login?token=${token}&userid=${req.user.id}`);
   }
 );
@@ -95,11 +93,9 @@ router.get('/github/callback', passport.authenticate('github', { failureRedirect
 // });
 
 router.get('/verify', (req, res, next) => {
-  console.log("Headers received:", req.headers);
   next();
 }, auth, async (req, res) => {
   try {
-    console.log("User id:", req.user.id);
     const user = await User.findById(req.user.id).select('-password');
     res.json({ user });
   } catch (err) {
