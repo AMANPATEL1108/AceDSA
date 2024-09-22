@@ -56,10 +56,10 @@ const UserDashboard = () => {
               </a>
             </li>
             <li onClick={handleLogout} className="cursor-pointer px-6 py-2 hover:bg-gray-700">
-              <a className="flex items-center space-x-2">
+              <button className="flex items-center space-x-2">
                 <FaSignOutAlt className="text-green-400" />
                 <span>Logout</span>
-              </a>
+              </button>
             </li>
           </ul>
         </nav>
@@ -72,7 +72,7 @@ const UserDashboard = () => {
       <main className="flex-1 p-6">
         {/* Header */}
         <header className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-semibold text-gray-700">Dashboard</h1>
+          <h1 className="text-3xl font-semibold text-gray-700">Welcome {user.username}</h1>
           <div className="flex items-center space-x-4">
             <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
               Start a Problem

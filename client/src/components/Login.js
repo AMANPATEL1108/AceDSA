@@ -340,7 +340,7 @@ function Login() {
 
             <div className="text-sm">
               <a
-                href="#"
+                href="/forgot-password"
                 className="font-medium text-green-400 hover:text-green-300"
               >
                 Forgot your password?
