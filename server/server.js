@@ -8,7 +8,7 @@ const passport = require('./utils/passportConfig');  // Import passport setup
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 app.use(cors({
   origin: 'http://localhost:3000',
@@ -35,6 +35,10 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => console.log('Connected to MongoDB'));
 
 // Routes
+app.get('/', (req, res) => {
+  res.send("Hello and this is running on port 8080");
+});
+
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/problems', require('./routes/problems'));
 app.use('/api/topics', require('./routes/topics'));
