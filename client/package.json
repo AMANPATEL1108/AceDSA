@@ -61,7 +61,7 @@
   "devServer": {
     "allowedHosts": "all"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "https://acedsa.up.railway.app/",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-transform-class-properties": "^7.25.4",
