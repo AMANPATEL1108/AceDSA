@@ -59,10 +59,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    checkAuthStatus();
-  }, []);
-
 //   const checkAuthStatus = async () => {
 //     const token = localStorage.getItem('token');
 //     if (token) {
@@ -94,6 +90,10 @@ const checkAuthStatus = async () => {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    checkAuthStatus();
+  }, [checkAuthStatus]);
   
 
 //   const login = (token, userID) => {

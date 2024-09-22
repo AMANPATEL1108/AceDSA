@@ -52,11 +52,12 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github2').Strategy;
 const User = require('../models/User');
 require('dotenv').config();
+const PORT = process.env.PORT || 5000;
 
 const options = {
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: "http://localhost:5000/api/auth/github/callback"
+  callbackURL: `http://localhost:${PORT}/api/auth/github/callback`
 };
 
 // Check if clientID is provided

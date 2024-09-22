@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <div className="bg-gray-900 text-gray-100 font-mono">
       {/* Hero Section */}
-      <header className="bg-gray-800 py-20">
+      <header id="home" className="bg-gray-800 py-20">
         <div className="max-w-4xl mx-auto text-center px-4">
           <h1 className="text-5xl font-extrabold mb-6 text-green-400">
             Revolutionize Your Coding Journey with AceDSA
@@ -160,7 +160,7 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+      <footer id="footer" className="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
@@ -177,7 +177,7 @@ const Home = () => {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="#"
+                    href="#home"
                     className="hover:text-green-400 transition duration-300"
                   >
                     Home
@@ -216,7 +216,7 @@ const Home = () => {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="#"
+                    href="https://github.com/Gurupatel007/AceDSA"
                     className="hover:text-green-400 transition duration-300"
                   >
                     GitHub
@@ -224,7 +224,7 @@ const Home = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://github.com/Gurupatel007/AceDSA"
                     className="hover:text-green-400 transition duration-300"
                   >
                     Discord
@@ -232,7 +232,7 @@ const Home = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://github.com/Gurupatel007/AceDSA"
                     className="hover:text-green-400 transition duration-300"
                   >
                     Forum
@@ -240,7 +240,7 @@ const Home = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://github.com/Gurupatel007/AceDSA"
                     className="hover:text-green-400 transition duration-300"
                   >
                     Blog
@@ -255,7 +255,7 @@ const Home = () => {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="#"
+                    href="#footer"
                     className="hover:text-green-400 transition duration-300"
                   >
                     Terms of Service
@@ -263,7 +263,7 @@ const Home = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#footer"
                     className="hover:text-green-400 transition duration-300"
                   >
                     Privacy Policy
@@ -271,7 +271,7 @@ const Home = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#footer"
                     className="hover:text-green-400 transition duration-300"
                   >
                     Cookie Policy
