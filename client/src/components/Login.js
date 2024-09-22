@@ -226,7 +226,7 @@ function Login() {
   }, [navigate, login]);
 
   const githubLogin = () => {
-    window.location.href = 'http://localhost:5000/api/auth/github';
+    window.location.href = 'http://localhost:8080/api/auth/github';
   };
 
   // const handleSubmit = async (e) => {

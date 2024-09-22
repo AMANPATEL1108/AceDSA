@@ -132,6 +132,7 @@ router.get('/:id', async (req, res) => {
 // });
 router.post('/:id/submit', async (req, res) => {
   try {
+    console.log(req.body);
     const { code, userID } = req.body;
     const problem = await Problem.findById(req.params.id);
     if (!problem) {
@@ -183,7 +184,8 @@ router.post('/:id/submit', async (req, res) => {
 
     res.json({ testResults, isAllPassed });
   } catch (err) {
-    console.error(err.message);
+    // console.error(err.message);
+    console.error('Error submitting solution:', error);
     res.status(500).json({ msg: 'Server Error', error: err.message });
   }
 });
