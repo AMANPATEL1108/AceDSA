@@ -25,7 +25,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "http://localhost:8080/api", // Ensure this is correct
+  baseURL: "https://acedsa.up.railway.app/api", // Ensure this is correct
 });
 
 // api.interceptors.request.use(
