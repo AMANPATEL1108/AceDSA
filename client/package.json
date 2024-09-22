@@ -26,14 +26,16 @@
     "react-tabs": "^6.0.2",
     "react-toastify": "^10.0.5",
     "resolve-url-loader": "^5.0.0",
+    "serve": "^14.2.3",
     "svgo": "^3.3.2",
     "web-vitals": "^4.2.3",
     "webpack-dev-middleware": "^7.4.2",
     "yargs-parser": "^21.1.1"
   },
   "scripts": {
-    "start": "react-scripts --max_old_space_size=4096 start",
+    "start": "react-scripts --max_old_space_size=256",
     "build": "react-scripts build",
+    "serve": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
