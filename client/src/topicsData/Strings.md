@@ -3,15 +3,30 @@
 Strings are a fundamental data type in most programming languages, used to represent text. A string is essentially a sequence of characters.
 
 ## Table of Contents
-1. [Basic Concepts](#basic-concepts)
-2. [Creating Strings](#creating-strings)
-3. [Accessing String Characters](#accessing-string-characters)
-4. [Modifying Strings](#modifying-strings)
-5. [Common String Operations](#common-string-operations)
-6. [String Methods](#string-methods)
-7. [String Performance](#string-performance)
-8. [Practice Problems](#practice-problems)
-9. [Further Reading](#further-reading)
+- [Strings](#strings)
+  - [Table of Contents](#table-of-contents)
+  - [Basic Concepts](#basic-concepts)
+  - [Creating Strings](#creating-strings)
+  - [Accessing String Characters](#accessing-string-characters)
+  - [Modifying Strings](#modifying-strings)
+  - [Common String Operations](#common-string-operations)
+    - [Concatenation](#concatenation)
+    - [Substrings](#substrings)
+    - [Changing Case](#changing-case)
+    - [Trimming Whitespace](#trimming-whitespace)
+  - [String Methods](#string-methods)
+    - [`indexOf()`](#indexof)
+    - [`includes()`](#includes)
+    - [`split()`](#split)
+    - [`replace()`](#replace)
+    - [`repeat()`](#repeat)
+  - [String Performance](#string-performance)
+  - [Practice Problems](#practice-problems)
+    - [Reverse a String](#reverse-a-string)
+    - [Check if a String is a Palindrome](#check-if-a-string-is-a-palindrome)
+    - [Count the Number of Vowels in a String](#count-the-number-of-vowels-in-a-string)
+    - [Find the Longest Word in a String](#find-the-longest-word-in-a-string)
+  - [Further Reading](#further-reading)
 
 ## Basic Concepts
 
@@ -255,6 +270,6 @@ console.log(findLongestWord('The quick brown fox jumps over the lazy dog')); // 
 
 ## Further Reading
 
-- MDN Web Docs: String (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-- JavaScript.info: Strings (https://javascript.info/string)
-- GeeksforGeeks: Strings in JavaScript (https://www.geeksforgeeks.org/strings-in-javascript/)
+- [MDN Web Docs: String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+- [JavaScript.info: Strings](https://javascript.info/string)
+- [GeeksforGeeks: Strings in JavaScript](https://www.geeksforgeeks.org/strings-in-javascript/)
