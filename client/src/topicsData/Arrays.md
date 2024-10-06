@@ -263,5 +263,3 @@ console.log(mergeSortedArrays([1, 3, 5], [2, 4, 6])); // Output: [1, 2, 3, 4, 5,
 - [MDN Web Docs: Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - [JavaScript.info: Arrays](https://javascript.info/array)
 - [GeeksforGeeks: Arrays in JavaScript](https://www.geeksforgeeks.org/arrays-in-javascript/)
-
-Happy coding!
