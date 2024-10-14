@@ -23,6 +23,11 @@ Key characteristics of arrays:
 - Homogeneous elements (same data type)
 - Contiguous memory allocation
 
+## YouTube Tutorial
+
+[YouTube Tutorial](https://youtu.be/yQ1fz8LY354?si=x9rCoennAsotkOHb)
+
+
 ## Creating Arrays
 
 Here's how you can create an array in JavaScript:
