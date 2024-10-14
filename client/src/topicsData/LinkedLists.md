@@ -117,6 +117,10 @@ Head -> [10|next] -> [20|next] -> [30|null]
    - **Description**: The last node points to the first node.
    - **Use Cases**: Where there is a need for circular traversal, such as in round-robin scheduling.
 
+## YouTube Tutorial
+
+[YouTube Tutorial](https://www.youtube.com/watch?v=ZBdE8DElQQU)
+
 ## Implementation in JavaScript
 
 ### Node Definition
