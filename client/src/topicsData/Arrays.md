@@ -25,7 +25,7 @@ Key characteristics of arrays:
 
 ## YouTube Tutorial
 
-[YouTube Tutorial](https://youtu.be/yQ1fz8LY354?si=x9rCoennAsotkOHb)
+[YouTube Tutorial](https://www.youtube.com/watch?v=yQ1fz8LY354)
 
 
 ## Creating Arrays
