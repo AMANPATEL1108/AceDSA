@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
 
@@ -6,23 +6,11 @@ function ManageUsers() {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
-
-  // const fetchUsers = async () => {
-  //   try {
-  //     const response = await api.get("/admin/users");
-  //     setUsers(response.data);
-  //   } catch (error) {
-  //     if (error.response && error.response.status === 401) {
-  //       console.error("Token has expired, redirecting to login.");
-  //       navigate("/admin/login");
-  //     } else {
-  //       console.error("Error fetching users:", error);
-  //     }
-  //   }
-  // };
-
-  const fetchUsers = useCallback(async () => {
+  const fetchUsers = async () => {
     try {
       const response = await api.get("/admin/users");
       setUsers(response.data);
@@ -34,11 +22,7 @@ function ManageUsers() {
         console.error("Error fetching users:", error);
       }
     }
-  }, [navigate]); // Only recreate the function when 'navigate' changes
-
-  useEffect(() => {
-    fetchUsers();
-  }, [fetchUsers]);
+  };
 
   const handleDeleteUser = async (userId) => {
     try {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useCallback} from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
 
@@ -6,7 +6,11 @@ function ManageProblems() {
   const [problems, setProblems] = useState([]);
   const navigate = useNavigate();
 
-  const fetchProblems = useCallback(async () => {
+  useEffect(() => {
+    fetchProblems();
+  }, []);
+
+  const fetchProblems = async () => {
     try {
       const response = await api.get("/admin/problems");
       setProblems(response.data);
@@ -17,11 +21,7 @@ function ManageProblems() {
         console.error("Error fetching problems:", error);
       }
     }
-  },[navigate]);
-
-  useEffect(() => {
-    fetchProblems();
-  }, [fetchProblems]);
+  };
 
   const handleDeleteProblem = async (problemId) => {
     try {

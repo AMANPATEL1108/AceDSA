@@ -1,25 +1,17 @@
 {
-  "name": "acedsa",
+  "name": "cp3-platform",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server":"npm start --prefix server",
+    "server": "npm start --prefix server",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Gurupatel007/AceDSA.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Gurupatel007/AceDSA/issues"
-  },
-  "homepage": "https://github.com/Gurupatel007/AceDSA#readme",
+  "description": "",
   "dependencies": {
     "concurrently": "^9.0.1"
   }

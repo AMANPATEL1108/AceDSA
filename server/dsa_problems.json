@@ -581,10 +581,20 @@
           "leetcode_link": "https://leetcode.com/problems/rotate-array/",
           "description": "Given an array, rotate the array to the right by k steps, where k is non-negative.",
           "template": "var rotate = function(nums, k) {\n    // Your code here\n};",
-          "example": {
-            "input": "nums = [1,2,3,4,5,6,7], k = 3",
-            "output": "[5,6,7,1,2,3,4]"
-          },
+          "example": [
+            {
+              "input": "nums = [1,2,3,4,5,6,7], k = 3",
+              "output": "[5,6,7,1,2,3,4]"
+            },
+            {
+              "input": "[[-1,-100,3,99], 2]",
+              "output": "[3,99,-1,-100]"
+            },
+            {
+              "input": "[[1,2,3,4,5,6,7], 1]",
+              "output": "[7,1,2,3,4,5,6]"
+            }
+          ],
           "constraints": [
             "1 <= nums.length <= 10^5",
             "-2^31 <= nums[i] <= 2^31 - 1",
@@ -654,10 +664,20 @@
           "leetcode_link": "https://leetcode.com/problems/single-number/",
           "description": "Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.",
           "template": "var singleNumber = function(nums) {\n    // Your code here\n};",
-          "example": {
-            "input": "nums = [2,2,1]",
-            "output": "1"
-          },
+          "example": [
+            {
+              "input": "nums = [2,2,1]",
+              "output": "1"
+            },
+            {
+              "input": "[[4,1,2,1,2]]",
+              "output": "4"
+            },
+            {
+              "input": "[[1]]",
+              "output": "1"
+            }
+          ],
           "constraints": [
             "1 <= nums.length <= 3 * 10^4",
             "-3 * 10^4 <= nums[i] <= 3 * 10^4",
@@ -726,10 +746,20 @@
           "leetcode_link": "https://leetcode.com/problems/3sum/",
           "description": "Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0. Notice that the solution set must not contain duplicate triplets.",
           "template": "var threeSum = function(nums) {\n    // Your code here\n};",
-          "example": {
-            "input": "nums = [-1,0,1,2,-1,-4]",
-            "output": "[[-1,-1,2],[-1,0,1]]"
-          },
+          "example": [
+            {
+              "input": "nums = [-1,0,1,2,-1,-4]",
+              "output": "[[-1,-1,2],[-1,0,1]]"
+            },
+            {
+              "input": "[[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]]",
+              "output": "[[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]"
+            },
+            {
+              "input": "[[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]]",
+              "output": "[[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]"
+            }
+          ],
           "constraints": [
             "0 <= nums.length <= 3000",
             "-10^5 <= nums[i] <= 10^5"
@@ -752,42 +782,296 @@
               "output": [[-1,-1,2],[-1,0,1]]
             },
             {
-              "input": [[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]],
-              "output": [[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
+              "input": [[0]],
+              "output": []
             },
             {
-              "input": [[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]],
-              "output": [[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
+              "input": [[1,-1,-1,0]],
+              "output": [[-1,0,1]]
             },
             {
-              "input": [[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]],
-              "output": [[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
+              "input": [[-2,0,1,1,2]],
+              "output": [[-2,0,2],[-2,1,1]]
             },
             {
-              "input": [[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]],
-              "output": [[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
+              "input": [[-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6]],
+              "output": [[-4,-2,6],[-4,0,4],[-4,1,3],[-2,-2,4],[-2,0,2]]
             },
             {
-              "input": [[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]],
-              "output": [[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
+              "input": [[-1,0,1,2,-1,-4,-2,-3,3,0,4]],
+              "output": [[-4,0,4],[-4,1,3],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
             },
             {
-              "input": [[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]],
-              "output": [[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
+              "input": [[-5,2,-1,-2,3]],
+              "output": [[-5,2,3],[-2,-1,3]]
             },
             {
-              "input": [[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]],
-              "output": [[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
+              "input": [[3,0,-2,-1,1,2]],
+              "output": [[-2,-1,3],[-2,0,2],[-1,0,1]]
             },
             {
-              "input": [[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]],
-              "output": [[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
+              "input": [[-4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0]],
+              "output": [[-5,1,4],[-4,0,4],[-4,1,3],[-2,-2,4],[-2,1,1],[0,0,0]]
             },
             {
-              "input": [[-1,0,1,2,-1,-4 ,-2, -3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]],
-              "output": [[-4,0,4],[-4,1,3],[-3,-2,5],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
+              "input": [[1,2,-2,-1]],
+              "output": []
             }
           ]
+        },
+        {
+          "id": 76,
+          "title": "Minimum Window Substring",
+          "topic": "Arrays",
+          "difficulty": "Hard",
+          "leetcode_link": "https://leetcode.com/problems/minimum-window-substring/",
+          "description": "Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string \"\".",
+          "template": "var minWindow = function(s, t) {\n    // Your code here\n};",
+          "example": [
+            {
+              "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+              "output": "\"BANC\""
+            },
+            {
+              "input": "s = \"a\", t = \"a\"",
+              "output": "\"a\""
+            },
+            {
+              "input": "s = \"a\", t = \"aa\"",
+              "output": "\"\""
+            }
+          ],
+          "constraints": [
+            "m == s.length",
+            "n == t.length",
+            "1 <= m, n <= 10^5",
+            "s and t consist of uppercase and lowercase English letters."
+          ],
+          "follow_up": "Can you solve it in O(m + n) time complexity?",
+          "hints": [
+            "Use two pointers to create a window.",
+            "Use a hash map to keep track of the characters in t.",
+            "Expand the window until you have all characters from t, then contract it to find the minimum window."
+          ],
+          "solution_approach": "Use the sliding window technique with two pointers. Use a hash map to keep track of the characters in t and another to keep track of the characters in the current window. Expand the window until all characters in t are included, then contract it to find the minimum window.",
+          "time_complexity": "O(m + n)",
+          "space_complexity": "O(k), where k is the number of unique characters in t",
+          "code_snippet": {
+            "javascript": "function minWindow(s, t) {\n  const need = new Map();\n  for (let c of t) {\n    need.set(c, (need.get(c) || 0) + 1);\n  }\n  let missing = t.length;\n  let start = 0, end = 0;\n  let i = 0;\n  let res = [0, Infinity];\n  while (end < s.length) {\n    if (need.has(s[end]) && need.get(s[end]) > 0) {\n      missing--;\n    }\n    need.set(s[end], (need.get(s[end]) || 0) - 1);\n    end++;\n    while (missing === 0) {\n      if (end - start < res[1] - res[0]) {\n        res = [start, end];\n      }\n      need.set(s[start], (need.get(s[start]) || 0) + 1);\n      if (need.get(s[start]) > 0) {\n        missing++;\n      }\n      start++;\n    }\n  }\n  return res[1] === Infinity ? \"\" : s.slice(res[0], res[1]);\n}"
+          },
+          "related_topics": ["Hash Table", "String", "Sliding Window"],
+          "testCases": [
+            {
+              "input": ["ADOBECODEBANC", "ABC"],
+              "output": "BANC"
+            },
+            {
+              "input": ["a", "a"],
+              "output": "a"
+            },
+            {
+              "input": ["a", "aa"],
+              "output": ""
+            },
+            {
+              "input": ["ADOBECODEBANC", "ABBC"],
+              "output": "BANC"
+            },
+            {
+              "input": ["aaaaaaaaaaaabbbbbcdd", "abcdd"],
+              "output": "abbbbbcdd"
+            },
+            {
+              "input": ["cabwefgewcwaefgcf", "cae"],
+              "output": "cwae"
+            },
+            {
+              "input": ["acbbaca", "aba"],
+              "output": "baca"
+            },
+            {
+              "input": ["aaflslflsldkalskaaa", "aaa"],
+              "output": "aaa"
+            },
+            {
+              "input": ["ab", "a"],
+              "output": "a"
+            },
+            {
+              "input": ["bdab", "ab"],
+              "output": "ab"
+            }
+          ]
+        },
+        {
+          "_id": {
+            "$oid": "66feda56ded09a258dd47ed8"
+          },
+          "title": "Valid Parentheses",
+          "topic": "Stacks",
+          "difficulty": "Easy",
+          "leetcode_link": "https://leetcode.com/problems/valid-parentheses/",
+          "description": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+          "example": [
+            {
+              "input": "[\"()\"]",
+              "output": "true",
+              "_id": {
+                "$oid": "66feda56ded09a258dd47ed9"
+              }
+            },
+            {
+              "input": "[\"()[]{}\"]",
+              "output": "true",
+              "_id": {
+                "$oid": "66feda56ded09a258dd47eda"
+              }
+            },
+            {
+              "input": "[\"(]\"]",
+              "output": "false",
+              "_id": {
+                "$oid": "66feda56ded09a258dd47edb"
+              }
+            }
+          ],
+          "constraints": [
+            "1 <= s.length <= 104",
+            "s consists of parentheses only '()[]{}'",
+            "The input string is guaranteed to be non-empty.",
+            "Open brackets must be closed by the same type of brackets."
+          ],
+          "hints": [
+            "Use a stack to keep track of the opening brackets.",
+            "For each closing bracket, pop the corresponding opening bracket from the stack."
+          ],
+          "solution_approach": "We can use a stack to keep track of the opening brackets. For each closing bracket, we pop the corresponding opening bracket from the stack. If the stack is empty or the popped bracket does not match the current closing bracket, the string is invalid. If we reach the end of the string and the stack is empty, the string is valid.",
+          "time_complexity": "O(n), where n is the length of the string.",
+          "space_complexity": "O(n), in the worst case, where n is the length of the string.",
+          "code_snippet": {
+            "javascript": "var isValid = function(s) {\n    const stack = [];\n    const parenthesesMap = {\n        ')': '(',\n        ']': '[',\n        '}': '{',\n    };\n\n    for (let i = 0; i < s.length; i++) {\n        const char = s[i];\n        if (parenthesesMap[char]) {\n            if (stack.length === 0 || stack.pop() !== parenthesesMap[char]) {\n                return false;\n            }\n        } else {\n            stack.push(char);\n        }\n    }\n\n    return stack.length === 0;\n};"
+          },
+          "related_topics": [
+            "String",
+            "Data Structure"
+          ],
+          "testCases": [
+            {
+              "input": [
+                [
+                  "\"()\""
+                ]
+              ],
+              "output": true,
+              "_id": {
+                "$oid": "66feda56ded09a258dd47edc"
+              }
+            },
+            {
+              "input": [
+                [
+                  "\"()[]{}\""
+                ]
+              ],
+              "output": true,
+              "_id": {
+                "$oid": "66feda56ded09a258dd47edd"
+              }
+            },
+            {
+              "input": [
+                [
+                  "(]"
+                ]
+              ],
+              "output": false,
+              "_id": {
+                "$oid": "66feda56ded09a258dd47ede"
+              }
+            },
+            {
+              "input": [
+                [
+                  "([{}])"
+                ]
+              ],
+              "output": true,
+              "_id": {
+                "$oid": "66feda56ded09a258dd47edf"
+              }
+            },
+            {
+              "input": [
+                [
+                  "[{}]"
+                ]
+              ],
+              "output": true,
+              "_id": {
+                "$oid": "66feda56ded09a258dd47ee0"
+              }
+            },
+            {
+              "input": [
+                [
+                  "{[]}()"
+                ]
+              ],
+              "output": true,
+              "_id": {
+                "$oid": "66feda56ded09a258dd47ee1"
+              }
+            },
+            {
+              "input": [
+                [
+                  "(]"
+                ]
+              ],
+              "output": false,
+              "_id": {
+                "$oid": "66feda56ded09a258dd47ee2"
+              }
+            },
+            {
+              "input": [
+                [
+                  "{([)}}"
+                ]
+              ],
+              "output": false,
+              "_id": {
+                "$oid": "66feda56ded09a258dd47ee3"
+              }
+            },
+            {
+              "input": [
+                [
+                  "((]"
+                ]
+              ],
+              "output": false,
+              "_id": {
+                "$oid": "66feda56ded09a258dd47ee4"
+              }
+            },
+            {
+              "input": [
+                [
+                  "([]"
+                ]
+              ],
+              "output": false,
+              "_id": {
+                "$oid": "66feda56ded09a258dd47ee5"
+              }
+            }
+          ],
+          "template": "var isValid = function(s) {\n    // Your code here\n};",
+          "createdAt": {
+            "$date": "2024-10-03T17:54:30.201Z"
+          },
+          "__v": 0
         }
       ]
     }

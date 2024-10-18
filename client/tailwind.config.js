@@ -1,7 +1,11 @@
 module.exports = {
-  content: ['./src/**/*.{html,js,jsx,ts,tsx}'], // replace purge with content
+  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+  darkMode: "class", // or 'media'
   theme: {
     extend: {},
   },
+  variants: {
+    extend: {},
+  },
   plugins: [],
-}
+};

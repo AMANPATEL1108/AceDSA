@@ -12,7 +12,7 @@ import {
 } from "chart.js";
 import { Bar, Pie } from "react-chartjs-2";
 import api from "../utils/api";
-import { FaUsers, FaCode, FaPlus } from "react-icons/fa";
+import { FaUsers, FaCode, FaChartLine, FaPlus } from "react-icons/fa";
 
 ChartJS.register(
   CategoryScale,
