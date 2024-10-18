@@ -139,6 +139,10 @@ let str = '   Hello, World!   ';
 console.log(str.trim()); // Output: 'Hello, World!'
 ```
 
+## YouTube Tutorial
+
+[YouTube Tutorial](https://www.youtube.com/watch?v=uKKEdtNU5II)
+
 ## String Methods
 
 JavaScript provides many useful methods for working with strings. Here are some examples:
