@@ -15,7 +15,9 @@ const { generateQuiz } = require('./routes/quizGenerator');
 
 async function testGenerator() {
   console.log('Starting test generation...');
-  await generateAndStoreQuestion();
+  for (let i = 0; i < 50; i++) {
+    await generateAndStoreQuestion();
+  }
   // await generateQuiz();
   console.log('Test generation complete.');
 }

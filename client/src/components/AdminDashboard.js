@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,7 +13,10 @@ import {
 } from "chart.js";
 import { Bar, Pie } from "react-chartjs-2";
 import api from "../utils/api";
-import { FaUsers, FaCode, FaChartLine, FaPlus } from "react-icons/fa";
+import { 
+  FaUsers, FaCode, FaChartLine, FaPlus, 
+  FaDownload, FaSearch, FaFilter 
+} from "react-icons/fa";
 
 ChartJS.register(
   CategoryScale,
@@ -32,17 +36,38 @@ const Chart = React.memo(({ data, type, options }) => {
 function AdminDashboard() {
   const [stats, setStats] = useState({});
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filter, setFilter] = useState("all");
+  const [userActivity, setUserActivity] = useState([]);
 
   useEffect(() => {
-    fetchStats();
+    fetchExtendedStats();
   }, []);
 
-  const fetchStats = async () => {
+  const fetchExtendedStats = async () => {
     try {
-      const response = await api.get("/admin/stats");
-      setStats(response.data);
+      const [statsRes, activityRes] = await Promise.all([
+        api.get("/admin/stats"),
+        api.get("/admin/user-activity")
+      ]);
+      setStats(statsRes.data);
+      setUserActivity(activityRes.data);
     } catch (error) {
-      console.error("Error fetching stats:", error);
+      console.error("Error fetching extended stats:", error);
+    }
+  };
+
+  const exportData = async (type) => {
+    try {
+      const response = await api.get(`/admin/export/${type}`);
+      const blob = new Blob([JSON.stringify(response.data)], { type: 'application/json' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${type}-export.json`;
+      a.click();
+    } catch (error) {
+      console.error(`Error exporting ${type}:`, error);
     }
   };
 
@@ -79,76 +104,134 @@ function AdminDashboard() {
     },
   };
 
-  const renderDashboard = () => (
-    <div className="flex flex-col items-center">
-      <h2 className="text-3xl font-bold mb-12 text-green-400">
-        Dashboard Overview
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 w-full">
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold mb-4 text-green-400">
-            Users vs Problems
-          </h3>
-          <div className="h-64">
-            <Chart data={userProblemData} type="pie" options={chartOptions} />
-          </div>
-        </div>
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold mb-4 text-green-400">
-            Problem Difficulty
-          </h3>
-          <div className="h-64">
-            <Chart data={difficultyData} type="pie" options={chartOptions} />
-          </div>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-        <AdminButton
-          icon={<FaUsers className="mr-2" />}
-          text="Manage Users"
-          onClick={() => navigate("/admin/manage-users")}
-        />
-        <AdminButton
-          icon={<FaCode className="mr-2" />}
-          text="Manage Problems"
-          onClick={() => navigate("/admin/manage-problems")}
-        />
-        <AdminButton
-          icon={<FaPlus className="mr-2" />}
-          text="Add User"
-          onClick={() => navigate("/admin/add-user")}
-        />
-        <AdminButton
-          icon={<FaPlus className="mr-2" />}
-          text="Add Problem"
-          onClick={() => navigate("/admin/add-problem")}
-        />
-      </div>
-    </div>
-  );
-
   return (
-    <div className="bg-gray-900 text-gray-100 font-mono min-h-screen">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-gray-900 text-gray-100 min-h-screen"
+    >
       <header className="bg-gray-800 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-green-400">Admin Dashboard</h1>
         </div>
       </header>
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {renderDashboard()}
+      
+      <main className="max-w-7xl mx-auto px-4 py-12">
+        <div className="flex gap-4 mb-8">
+          <div className="relative flex-1">
+            <FaSearch className="absolute left-3 top-3 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-full pl-10 pr-4 py-2 bg-gray-800 rounded-lg focus:ring-2 focus:ring-green-400"
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <select
+            className="bg-gray-800 px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-400"
+            onChange={(e) => setFilter(e.target.value)}
+          >
+            <option value="all">All</option>
+            <option value="users">Users</option>
+            <option value="problems">Problems</option>
+          </select>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <StatsCard
+            title="Total Users"
+            value={stats.totalUsers}
+            icon={<FaUsers />}
+          />
+          <StatsCard
+            title="Total Problems"
+            value={stats.totalProblems}
+            icon={<FaCode />}
+          />
+          <StatsCard
+            title="Active Users"
+            value={stats.activeUsers}
+            icon={<FaChartLine />}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-4 text-green-400">
+              Users vs Problems
+            </h3>
+            <div className="h-64">
+              <Chart data={userProblemData} type="pie" options={chartOptions} />
+            </div>
+          </div>
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-4 text-green-400">
+              Problem Difficulty
+            </h3>
+            <div className="h-64">
+              <Chart data={difficultyData} type="pie" options={chartOptions} />
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <AdminButton
+            icon={<FaUsers className="mr-2" />}
+            text="Manage Users"
+            onClick={() => navigate("/admin/manage-users")}
+          />
+          <AdminButton
+            icon={<FaCode className="mr-2" />}
+            text="Manage Problems"
+            onClick={() => navigate("/admin/manage-problems")}
+          />
+          <AdminButton
+            icon={<FaPlus className="mr-2" />}
+            text="Add User"
+            onClick={() => navigate("/admin/add-user")}
+          />
+          <AdminButton
+            icon={<FaPlus className="mr-2" />}
+            text="Add Problem"
+            onClick={() => navigate("/admin/add-problem")}
+          />
+          <AdminButton
+            icon={<FaDownload />}
+            text="Export Data"
+            onClick={() => exportData('all')}
+          />
+        </div>
       </main>
-    </div>
+    </motion.div>
   );
 }
 
+const StatsCard = ({ title, value, icon }) => (
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    className="bg-gray-800 p-6 rounded-lg shadow-lg"
+  >
+    <div className="flex items-center justify-between">
+      <div>
+        <h3 className="text-gray-400">{title}</h3>
+        <p className="text-2xl font-bold text-green-400">{value}</p>
+      </div>
+      <div className="text-green-400 text-2xl">{icon}</div>
+    </div>
+  </motion.div>
+);
+
 const AdminButton = ({ icon, text, onClick }) => (
-  <button
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
     onClick={onClick}
-    className="w-full bg-gray-800 text-green-400 py-4 px-6 rounded-lg hover:bg-gray-700 transition duration-300 flex items-center justify-center"
+    className="w-full bg-gray-800 text-green-400 py-4 px-6 rounded-lg hover:bg-gray-700 transition duration-300 flex items-center justify-center shadow-lg"
   >
     {icon}
-    {text}
-  </button>
+    <span className="ml-2">{text}</span>
+  </motion.button>
 );
 
 export default AdminDashboard;

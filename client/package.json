@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
+    "@codemirror/lang-javascript": "^6.2.2",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@geoffcox/react-splitter": "^2.1.2",
@@ -16,6 +17,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@tsparticles/interaction-external-trail": "^3.5.0",
+    "@uiw/react-codemirror": "^4.23.6",
     "@uiw/react-textarea-code-editor": "^3.0.2",
     "axios": "^0.21.1",
     "chart.js": "^4.4.4",
