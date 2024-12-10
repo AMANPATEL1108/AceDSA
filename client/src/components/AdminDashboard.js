@@ -1,176 +1,204 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement,
-} from "chart.js";
-import { Bar, Pie } from "react-chartjs-2";
-import api from "../utils/api";
-import { 
-  FaUsers, FaCode, FaChartLine, FaPlus, 
-  FaDownload, FaSearch, FaFilter 
+  FaUsers,
+  FaCode,
+  FaChartLine,
+  FaPlus,
+  FaDownload,
+  FaSearch,
+  FaFilter,
+  FaDesktop,
+  FaMobileAlt,
+  FaTabletAlt,
 } from "react-icons/fa";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ArcElement
+// Separate component definitions
+const StatsCard = ({ title, value, icon, color }) => (
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    className={`${color} p-6 rounded-xl shadow-lg border-l-4 border-teal-400`}
+  >
+    <div className="flex items-center justify-between">
+      <div>
+        <h3 className="text-gray-300 mb-2">{title}</h3>
+        <p className="text-3xl font-bold text-white">{value}</p>
+      </div>
+      <div className="text-3xl opacity-70">{icon}</div>
+    </div>
+  </motion.div>
 );
 
-const Chart = React.memo(({ data, type, options }) => {
-  const ChartComponent = type === "bar" ? Bar : Pie;
-  return <ChartComponent data={data} options={options} />;
-});
+const AdminButton = ({ icon, text, onClick }) => (
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    onClick={onClick}
+    className="w-full bg-gray-800 text-teal-400 py-4 px-6 rounded-lg hover:bg-gray-700 transition duration-300 flex items-center justify-center shadow-lg"
+  >
+    {icon}
+    <span className="ml-2">{text}</span>
+  </motion.button>
+);
 
-function AdminDashboard() {
-  const [stats, setStats] = useState({});
-  const navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filter, setFilter] = useState("all");
-  const [userActivity, setUserActivity] = useState([]);
-
-  useEffect(() => {
-    fetchExtendedStats();
-  }, []);
-
-  const fetchExtendedStats = async () => {
-    try {
-      const [statsRes, activityRes] = await Promise.all([
-        api.get("/admin/stats"),
-        api.get("/admin/user-activity")
-      ]);
-      setStats(statsRes.data);
-      setUserActivity(activityRes.data);
-    } catch (error) {
-      console.error("Error fetching extended stats:", error);
-    }
-  };
-
-  const exportData = async (type) => {
-    try {
-      const response = await api.get(`/admin/export/${type}`);
-      const blob = new Blob([JSON.stringify(response.data)], { type: 'application/json' });
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${type}-export.json`;
-      a.click();
-    } catch (error) {
-      console.error(`Error exporting ${type}:`, error);
-    }
-  };
-
-  const userProblemData = {
-    labels: ["Users", "Problems"],
-    datasets: [
-      {
-        data: [stats.totalUsers, stats.totalProblems],
-        backgroundColor: ["#10B981", "#3B82F6"],
-      },
-    ],
-  };
-
-  const difficultyData = {
-    labels: ["Easy", "Medium", "Hard"],
-    datasets: [
-      {
-        data: [stats.easyProblems, stats.mediumProblems, stats.hardProblems],
-        backgroundColor: ["#10B981", "#F59E0B", "#EF4444"],
-      },
-    ],
-  };
-
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        position: "bottom",
-        labels: {
-          color: "#D1D5DB",
-        },
-      },
-    },
+const PlatformBar = ({ platform, percentage }) => {
+  const platformIcons = {
+    desktop: <FaDesktop />,
+    mobile: <FaMobileAlt />,
+    tablet: <FaTabletAlt />,
   };
 
   return (
-    <motion.div 
+    <div className="flex items-center space-x-4">
+      <div className="text-gray-400 w-16 flex items-center">
+        {platformIcons[platform]}
+        <span className="ml-2 capitalize">{platform}</span>
+      </div>
+      <div className="flex-1 bg-gray-700 rounded-full h-3">
+        <div
+          className="bg-teal-500 rounded-full h-3"
+          style={{ width: `${percentage}%` }}
+        ></div>
+      </div>
+      <div className="text-gray-400 w-10 text-right">{percentage}%</div>
+    </div>
+  );
+};
+
+const DifficultyBar = ({ difficulty, count, total }) => {
+  const difficultyColors = {
+    easy: "bg-green-500",
+    medium: "bg-yellow-500",
+    hard: "bg-red-500",
+  };
+
+  const percentage = ((count / total) * 100).toFixed(1);
+
+  return (
+    <div className="flex items-center space-x-4">
+      <div className="text-gray-400 w-16 capitalize">{difficulty}</div>
+      <div className="flex-1 bg-gray-700 rounded-full h-3">
+        <div
+          className={`${difficultyColors[difficulty]} rounded-full h-3`}
+          style={{ width: `${percentage}%` }}
+        ></div>
+      </div>
+      <div className="text-gray-400 w-10 text-right">{count}</div>
+    </div>
+  );
+};
+
+// Main component
+function AdminDashboard() {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filter, setFilter] = useState("all");
+
+  // Static data based on the requirement
+  const stats = {
+    totalUsers: 1,
+    totalProblems: 53,
+    activeUsers: 1,
+    platformBreakdown: {
+      desktop: 62,
+      mobile: 28,
+      tablet: 10,
+    },
+    problemBreakdown: {
+      easy: 18,
+      medium: 22,
+      hard: 13,
+    },
+  };
+
+  const exportData = () => {
+    const dataToExport = JSON.stringify(stats, null, 2);
+    const blob = new Blob([dataToExport], { type: "application/json" });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "admin-dashboard-export.json";
+    a.click();
+  };
+
+  return (
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-gray-900 text-gray-100 min-h-screen"
+      className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 min-h-screen"
     >
-      <header className="bg-gray-800 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-green-400">Admin Dashboard</h1>
+      <header className="bg-gray-800 shadow-md py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          <h1 className="text-3xl font-bold text-teal-400">Admin Dashboard</h1>
+          <div className="flex items-center space-x-4">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition"
+              onClick={exportData}
+            >
+              <FaDownload className="inline mr-2" /> Export Data
+            </motion.button>
+          </div>
         </div>
       </header>
-      
-      <main className="max-w-7xl mx-auto px-4 py-12">
-        <div className="flex gap-4 mb-8">
-          <div className="relative flex-1">
-            <FaSearch className="absolute left-3 top-3 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full pl-10 pr-4 py-2 bg-gray-800 rounded-lg focus:ring-2 focus:ring-green-400"
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          <select
-            className="bg-gray-800 px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-400"
-            onChange={(e) => setFilter(e.target.value)}
-          >
-            <option value="all">All</option>
-            <option value="users">Users</option>
-            <option value="problems">Problems</option>
-          </select>
-        </div>
 
+      <main className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <StatsCard
             title="Total Users"
             value={stats.totalUsers}
-            icon={<FaUsers />}
+            icon={<FaUsers className="text-teal-400" />}
+            color="bg-teal-900/50"
           />
           <StatsCard
             title="Total Problems"
             value={stats.totalProblems}
-            icon={<FaCode />}
+            icon={<FaCode className="text-indigo-400" />}
+            color="bg-indigo-900/50"
           />
           <StatsCard
             title="Active Users"
             value={stats.activeUsers}
-            icon={<FaChartLine />}
+            icon={<FaChartLine className="text-pink-400" />}
+            color="bg-pink-900/50"
           />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-4 text-green-400">
-              Users vs Problems
+          <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
+            <h3 className="text-xl font-semibold mb-4 text-teal-400">
+              Platform Usage
             </h3>
-            <div className="h-64">
-              <Chart data={userProblemData} type="pie" options={chartOptions} />
+            <div className="space-y-4">
+              {Object.entries(stats.platformBreakdown).map(
+                ([platform, percentage]) => (
+                  <PlatformBar
+                    key={platform}
+                    platform={platform}
+                    percentage={percentage}
+                  />
+                )
+              )}
             </div>
           </div>
-          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-4 text-green-400">
-              Problem Difficulty
+
+          <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
+            <h3 className="text-xl font-semibold mb-4 text-teal-400">
+              Problem Difficulty Distribution
             </h3>
-            <div className="h-64">
-              <Chart data={difficultyData} type="pie" options={chartOptions} />
+            <div className="space-y-4">
+              {Object.entries(stats.problemBreakdown).map(
+                ([difficulty, count]) => (
+                  <DifficultyBar
+                    key={difficulty}
+                    difficulty={difficulty}
+                    count={count}
+                    total={stats.totalProblems}
+                  />
+                )
+              )}
             </div>
           </div>
         </div>
@@ -196,42 +224,10 @@ function AdminDashboard() {
             text="Add Problem"
             onClick={() => navigate("/admin/add-problem")}
           />
-          <AdminButton
-            icon={<FaDownload />}
-            text="Export Data"
-            onClick={() => exportData('all')}
-          />
         </div>
       </main>
     </motion.div>
   );
 }
-
-const StatsCard = ({ title, value, icon }) => (
-  <motion.div
-    whileHover={{ scale: 1.05 }}
-    className="bg-gray-800 p-6 rounded-lg shadow-lg"
-  >
-    <div className="flex items-center justify-between">
-      <div>
-        <h3 className="text-gray-400">{title}</h3>
-        <p className="text-2xl font-bold text-green-400">{value}</p>
-      </div>
-      <div className="text-green-400 text-2xl">{icon}</div>
-    </div>
-  </motion.div>
-);
-
-const AdminButton = ({ icon, text, onClick }) => (
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    onClick={onClick}
-    className="w-full bg-gray-800 text-green-400 py-4 px-6 rounded-lg hover:bg-gray-700 transition duration-300 flex items-center justify-center shadow-lg"
-  >
-    {icon}
-    <span className="ml-2">{text}</span>
-  </motion.button>
-);
 
 export default AdminDashboard;

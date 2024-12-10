@@ -18,17 +18,37 @@ function ManageUsers() {
     fetchUsers();
   }, [sortField, sortOrder]);
 
+  // const fetchUsers = async () => {
+  //   try {
+  //     setIsLoading(true);
+  //     const response = await api.get(`/admin/users`);
+  //     setUsers(response.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //     handleError(error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
   const fetchUsers = async () => {
     try {
       setIsLoading(true);
-      const response = await api.get(`/admin/users?sort=${sortField}&order=${sortOrder}`);
+      const token = localStorage.getItem("adminToken"); // Get stored token
+      const response = await api.get("/admin/users", {
+        headers: {
+          "x-auth-token": token,
+        },
+      });
       setUsers(response.data);
     } catch (error) {
+      console.log(error);
       handleError(error);
     } finally {
       setIsLoading(false);
     }
   };
+
 
   const handleError = (error) => {
     if (error.response?.status === 401) {
@@ -41,11 +61,23 @@ function ManageUsers() {
 
   const handleDeleteUser = async (userId) => {
     try {
-      await api.delete(`/admin/users/${userId}`);
+      const token = localStorage.getItem('adminToken');
+      await api.delete(`/admin/users/${userId}`, {
+        headers: {
+          'x-auth-token': token
+        }
+      });
+      
+      // Update users list after successful deletion
+      setUsers(prevUsers => prevUsers.filter(user => user._id !== userId));
       toast.success("User deleted successfully");
-      fetchUsers();
     } catch (error) {
-      handleError(error);
+      if (error.response?.status === 401) {
+        toast.error("Session expired. Please login again.");
+        navigate("/admin/login");
+      } else {
+        toast.error(error.response?.data?.message || "An error occurred");
+      }
     }
   };
 
@@ -168,7 +200,7 @@ function ManageUsers() {
                       key={user._id}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="border-t border-gray-700"
+                      className="border-t border-gray-700 text-white"
                     >
                       <td className="p-4">
                         <input
@@ -193,14 +225,6 @@ function ManageUsers() {
                           <motion.button
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-                            onClick={() => navigate(`/admin/edit-user/${user._id}`)}
-                            className="text-blue-400 hover:text-blue-300"
-                          >
-                            <FaEdit />
-                          </motion.button>
-                          <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
                             onClick={() => handleDeleteUser(user._id)}
                             className="text-red-400 hover:text-red-300"
                           >
@@ -219,5 +243,4 @@ function ManageUsers() {
     </motion.div>
   );
 }
-
 export default ManageUsers;

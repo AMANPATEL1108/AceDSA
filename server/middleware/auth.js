@@ -62,8 +62,10 @@ const jwt = require('jsonwebtoken');
 //   }
 // };
 
-module.exports = function(req, res, next) {
+module.exports = function (req, res, next) {
+  // console.log("req.headers:", req);
   const token = req.header('x-auth-token');
+  console.log("Received token in auth middleware:", token);
 
   if (!token) {
     return res.status(401).json({ msg: 'No token, authorization denied' });
